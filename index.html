@@ -1,0 +1,2327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Name | E-commerce Virtual Assistant</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* ========================================
+           GLOBAL
+        ======================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            background: #050814;
+
+            color: #ffffff;
+
+            font-family: "Inter", sans-serif;
+
+            line-height: 1.6;
+
+            overflow-x: hidden;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        :root {
+
+            --background: #050814;
+
+            --background2: #090d1c;
+
+            --card: #0d1326;
+
+            --purple: #7c4dff;
+
+            --purple-light: #a78bfa;
+
+            --text: #ffffff;
+
+            --muted: #9ca5bd;
+
+            --border: rgba(255,255,255,0.09);
+
+            --max-width: 1180px;
+
+        }
+
+
+        /* ========================================
+           NAVBAR
+        ======================================== */
+
+        .navbar {
+
+            width: min(100% - 48px, var(--max-width));
+
+            height: 78px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-bottom: 1px solid var(--border);
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+        }
+
+
+        .logo-box {
+
+            width: 35px;
+
+            height: 35px;
+
+            display: grid;
+
+            place-items: center;
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            border-radius: 8px;
+
+            font-size: 11px;
+
+        }
+
+
+        nav {
+
+            display: flex;
+
+            gap: 28px;
+
+        }
+
+
+        nav a {
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            transition: 0.3s;
+
+        }
+
+
+        nav a:hover,
+        nav a.active {
+
+            color: white;
+
+        }
+
+
+        .hire-btn {
+
+            background: var(--purple);
+
+            padding: 10px 17px;
+
+            border-radius: 5px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            box-shadow: 0 10px 30px rgba(124,77,255,0.25);
+
+            transition: 0.3s;
+
+        }
+
+
+        .hire-btn:hover {
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .menu-btn {
+
+            display: none;
+
+            background: none;
+
+            border: none;
+
+            color: white;
+
+            font-size: 24px;
+
+            cursor: pointer;
+
+        }
+
+
+        /* ========================================
+           HERO
+        ======================================== */
+
+        .hero {
+
+            width: min(100% - 48px, var(--max-width));
+
+            min-height: 620px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+        }
+
+
+        .hero-content {
+
+            padding: 80px 0;
+
+            z-index: 2;
+
+        }
+
+
+        .small-title {
+
+            color: var(--purple-light);
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .small-title span {
+
+            width: 5px;
+
+            height: 5px;
+
+            display: inline-block;
+
+            background: var(--purple);
+
+            border-radius: 50%;
+
+            margin-right: 7px;
+
+        }
+
+
+        .hero h1 {
+
+            font-size: clamp(42px, 5vw, 65px);
+
+            line-height: 1.04;
+
+            letter-spacing: -3px;
+
+            max-width: 650px;
+
+        }
+
+
+        .purple {
+
+            color: var(--purple-light);
+
+        }
+
+
+        .hero-content > p {
+
+            max-width: 540px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin-top: 25px;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        /* ========================================
+           BUTTONS
+        ======================================== */
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 12px;
+
+        }
+
+
+        .primary-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            background: var(--purple);
+
+            padding: 11px 18px;
+
+            border-radius: 5px;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+
+        }
+
+
+        .primary-btn:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 15px 35px rgba(124,77,255,0.3);
+
+        }
+
+
+        .outline-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            padding: 10px 17px;
+
+            border-radius: 5px;
+
+            font-size: 11px;
+
+        }
+
+
+        .outline-btn:hover {
+
+            background: rgba(255,255,255,0.05);
+
+        }
+
+
+        /* ========================================
+           TOOLS
+        ======================================== */
+
+        .tools {
+
+            margin-top: 50px;
+
+        }
+
+
+        .tools-title {
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+            color: #606a82;
+
+            font-weight: 800;
+
+        }
+
+
+        .tools-list {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 12px;
+
+        }
+
+
+        .tool {
+
+            padding: 7px 11px;
+
+            border: 1px solid var(--border);
+
+            background: rgba(255,255,255,0.02);
+
+            border-radius: 5px;
+
+            font-size: 9px;
+
+            color: #cbd2e2;
+
+        }
+
+
+        /* ========================================
+           HERO VISUAL
+        ======================================== */
+
+        .hero-visual {
+
+            height: 570px;
+
+            position: relative;
+
+            display: grid;
+
+            place-items: center;
+
+        }
+
+
+        .purple-circle {
+
+            width: 390px;
+
+            height: 390px;
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+
+                    circle at 35% 30%,
+
+                    #b69aff,
+
+                    #6c35ee 48%,
+
+                    #170b43 75%,
+
+                    transparent 76%
+
+                );
+
+        }
+
+
+        .orbit {
+
+            position: absolute;
+
+            border: 1px solid rgba(167,139,250,0.18);
+
+            border-radius: 50%;
+
+        }
+
+
+        .orbit1 {
+
+            width: 520px;
+
+            height: 210px;
+
+            transform: rotate(-18deg);
+
+        }
+
+
+        .orbit2 {
+
+            width: 580px;
+
+            height: 250px;
+
+            transform: rotate(18deg);
+
+        }
+
+
+        /* ========================================
+           PROFILE IMAGE
+        ======================================== */
+
+        .profile-container {
+
+            position: absolute;
+
+            width: 300px;
+
+            height: 430px;
+
+            bottom: 45px;
+
+            border-radius: 150px 150px 10px 10px;
+
+            overflow: hidden;
+
+            background:
+
+                linear-gradient(
+
+                    180deg,
+
+                    #19213a,
+
+                    #080c18
+
+                );
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            box-shadow:
+
+                0 30px 80px rgba(0,0,0,0.5);
+
+            z-index: 2;
+
+        }
+
+
+        .profile-container img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+        }
+
+
+        /* ========================================
+           CODE CARD
+        ======================================== */
+
+        .code-card {
+
+            position: absolute;
+
+            width: 230px;
+
+            right: -5px;
+
+            top: 120px;
+
+            background: rgba(5,8,20,0.92);
+
+            backdrop-filter: blur(15px);
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            border-radius: 8px;
+
+            box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+
+            z-index: 5;
+
+        }
+
+
+        .code-header {
+
+            height: 35px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            padding: 0 10px;
+
+            border-bottom: 1px solid var(--border);
+
+        }
+
+
+        .dot {
+
+            width: 6px;
+
+            height: 6px;
+
+            background: #525a6e;
+
+            border-radius: 50%;
+
+        }
+
+
+        .code-header span {
+
+            color: #737c94;
+
+            font-size: 8px;
+
+            margin-left: 6px;
+
+        }
+
+
+        .code-card pre {
+
+            padding: 15px;
+
+            font-size: 8px;
+
+            line-height: 1.8;
+
+            color: #d3d8e6;
+
+        }
+
+
+        .pink {
+
+            color: #c084fc;
+
+        }
+
+
+        .green {
+
+            color: #86efac;
+
+        }
+
+
+        .blue {
+
+            color: #60a5fa;
+
+        }
+
+
+        /* ========================================
+           FLOATING SHOPIFY CARD
+        ======================================== */
+
+        .floating-card {
+
+            position: absolute;
+
+            padding: 8px 13px;
+
+            border-radius: 20px;
+
+            background: #10162b;
+
+            border: 1px solid var(--border);
+
+            font-size: 9px;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+            z-index: 10;
+
+        }
+
+
+        .floating-one {
+
+            left: 15px;
+
+            top: 180px;
+
+        }
+
+
+        /* ========================================
+           SECTIONS
+        ======================================== */
+
+        .section {
+
+            width: min(100% - 48px, var(--max-width));
+
+            margin: auto;
+
+            padding: 110px 0;
+
+        }
+
+
+        .section-header {
+
+            display: flex;
+
+            gap: 25px;
+
+            margin-bottom: 55px;
+
+        }
+
+
+        .number {
+
+            color: #505a72;
+
+            font-size: 12px;
+
+            padding-top: 4px;
+
+        }
+
+
+        .section h2 {
+
+            font-size: clamp(30px,4vw,48px);
+
+            line-height: 1.1;
+
+            letter-spacing: -2px;
+
+        }
+
+
+        /* ========================================
+           ABOUT
+        ======================================== */
+
+        .about-grid {
+
+            display: grid;
+
+            grid-template-columns: 1.1fr 0.9fr;
+
+            gap: 80px;
+
+        }
+
+
+        .about-text p {
+
+            color: var(--muted);
+
+            font-size: 15px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .stats {
+
+            display: grid;
+
+            grid-template-columns: repeat(3,1fr);
+
+            gap: 18px;
+
+        }
+
+
+        .stat {
+
+            border-top: 1px solid var(--border);
+
+            padding-top: 18px;
+
+        }
+
+
+        .stat h3 {
+
+            font-size: 32px;
+
+            color: var(--purple-light);
+
+        }
+
+
+        .stat p {
+
+            color: var(--muted);
+
+            font-size: 10px;
+
+        }
+
+
+       /* ========================================
+   SKILLS - SPIDER WEB
+======================================== */
+
+.skills-web {
+    position: relative;
+    width: 520px;
+    height: 520px;
+    margin: 20px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.web-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+}
+
+.web-lines svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.web-lines polygon {
+    fill: rgba(124, 77, 255, 0.04);
+    stroke: rgba(167, 139, 250, 0.35);
+    stroke-width: 1;
+}
+
+.web-lines line {
+    stroke: rgba(167, 139, 250, 0.22);
+    stroke-width: 1;
+}
+
+.skill-center {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #0d1326;
+    border: 1px solid rgba(167, 139, 250, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #a78bfa;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+
+.web-skill {
+    position: absolute;
+    width: 145px;
+    min-height: 45px;
+    padding: 12px 10px;
+    background: #0d1326;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 7px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    z-index: 3;
+    transition: .25s;
+}
+
+.web-skill:hover {
+    border-color: rgba(167,139,250,.5);
+    transform: scale(1.04);
+    color: #a78bfa;
+}
+
+/* Skill Positions */
+
+.skill-1 {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.skill-2 {
+    top: 135px;
+    right: -10px;
+}
+
+.skill-3 {
+    bottom: 70px;
+    right: 10px;
+}
+
+.skill-4 {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.skill-5 {
+    bottom: 70px;
+    left: 10px;
+}
+
+.skill-6 {
+    top: 135px;
+    left: -10px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .skills-web {
+        width: 350px;
+        height: 400px;
+        transform: scale(.9);
+    }
+
+    .web-skill {
+        width: 125px;
+        font-size: 10px;
+    }
+
+    .skill-center {
+        width: 90px;
+        height: 90px;
+        font-size: 11px;
+    }
+
+    .skill-1 {
+        top: 10px;
+    }
+
+    .skill-2 {
+        top: 105px;
+        right: -5px;
+    }
+
+    .skill-3 {
+        bottom: 55px;
+        right: 0;
+    }
+
+    .skill-4 {
+        bottom: 10px;
+    }
+
+    .skill-5 {
+        bottom: 55px;
+        left: 0;
+    }
+
+    .skill-6 {
+        top: 105px;
+        left: -5px;
+    }
+}
+
+        /* ========================================
+           PROJECTS
+        ======================================== */
+
+        .projects-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(4,1fr);
+
+            gap: 18px;
+
+        }
+
+
+        .project-card {
+
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+
+        }
+
+
+        .project-card:hover {
+
+            transform: translateY(-5px);
+
+        }
+
+
+        .project-image {
+
+            height: 210px;
+
+            display: grid;
+
+            place-items: center;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .shopify-project {
+
+            background:
+
+                radial-gradient(
+
+                    circle at 35% 30%,
+
+                    #58d68d,
+
+                    transparent 3%,
+
+                    #10251f 30%,
+
+                    #07120f
+
+                );
+
+        }
+
+
+        .design-project {
+
+            background:
+
+                radial-gradient(
+
+                    circle at 65% 30%,
+
+                    #8d70ff,
+
+                    transparent 3%,
+
+                    #20164b 35%,
+
+                    #0b0d1c
+
+                );
+
+        }
+
+
+        .research-project {
+
+            background:
+
+                radial-gradient(
+
+                    circle at 40% 30%,
+
+                    #5fa8ff,
+
+                    transparent 3%,
+
+                    #10213b 35%,
+
+                    #080d18
+
+                );
+
+        }
+
+
+        .shopify-design-project {
+
+            background:
+
+                radial-gradient(
+
+                    circle at 60% 30%,
+
+                    #7c4dff,
+
+                    transparent 3%,
+
+                    #24154f 35%,
+
+                    #0b0d1c
+
+                );
+
+        }
+
+
+        .project-content {
+
+            padding: 22px;
+
+        }
+
+
+        .project-content small {
+
+            color: var(--purple-light);
+
+            font-size: 8px;
+
+            letter-spacing: 1.5px;
+
+            font-weight: 800;
+
+        }
+
+
+        .project-content h3 {
+
+            font-size: 17px;
+
+            margin: 10px 0;
+
+        }
+
+
+        .project-content p {
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .project-content a {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* ========================================
+           SERVICES
+        ======================================== */
+
+        .services {
+
+            border-top: 1px solid var(--border);
+
+        }
+
+
+        .service {
+
+            display: grid;
+
+            grid-template-columns: 70px 1fr 1fr;
+
+            align-items: center;
+
+            padding: 25px 0;
+
+            border-bottom: 1px solid var(--border);
+
+        }
+
+
+        .service > span {
+
+            color: #535d74;
+
+            font-size: 11px;
+
+        }
+
+
+        .service h3 {
+
+            font-size: 17px;
+
+        }
+
+
+        .service p {
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+        }
+
+
+        /* ========================================
+           CONTACT
+        ======================================== */
+
+        .contact-section {
+
+            margin-top: 30px;
+
+            margin-bottom: 80px;
+
+            padding: 70px;
+
+            background:
+
+                linear-gradient(
+
+                    135deg,
+
+                    #111832,
+
+                    #0b0e1d
+
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 15px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 30px;
+
+        }
+
+
+        .contact-section h2 {
+
+            font-size: clamp(32px,4vw,50px);
+
+            line-height: 1.05;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .contact-section p {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+        }
+
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+
+        footer {
+
+            width: min(100% - 48px, var(--max-width));
+
+            margin: auto;
+
+            padding: 25px 0 35px;
+
+            border-top: 1px solid var(--border);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #596278;
+
+            font-size: 10px;
+
+        }
+
+
+        /* ========================================
+           RESPONSIVE
+        ======================================== */
+
+        @media (max-width: 900px) {
+
+            nav {
+
+                display: none;
+
+                position: absolute;
+
+                top: 78px;
+
+                left: 0;
+
+                right: 0;
+
+                background: #080c19;
+
+                padding: 20px;
+
+                flex-direction: column;
+
+                z-index: 100;
+
+                border-bottom: 1px solid var(--border);
+
+            }
+
+
+            nav.show {
+
+                display: flex;
+
+            }
+
+
+            .menu-btn {
+
+                display: block;
+
+            }
+
+
+            .hire-btn {
+
+                display: none;
+
+            }
+
+
+            .hero {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .hero-content {
+
+                padding-top: 70px;
+
+            }
+
+
+            .hero-visual {
+
+                height: 500px;
+
+            }
+
+
+            .about-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .skills-grid {
+
+                grid-template-columns: repeat(2,1fr);
+
+            }
+
+
+            .projects-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .contact-section {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .navbar,
+            .hero,
+            .section,
+            footer {
+
+                width: calc(100% - 30px);
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 42px;
+
+            }
+
+
+            .skills-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .stats {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .hero-visual {
+
+                transform: scale(0.8);
+
+                margin: -40px;
+
+            }
+
+
+            .service {
+
+                grid-template-columns: 45px 1fr;
+
+                gap: 8px;
+
+            }
+
+
+            .service p {
+
+                grid-column: 2;
+
+            }
+
+
+            .contact-section {
+
+                padding: 40px 25px;
+
+            }
+
+
+            footer {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ========================================
+     NAVIGATION
+======================================== -->
+
+<header class="navbar">
+
+
+    <div class="logo">
+
+        <span class="logo-box">
+            YG
+        </span>
+
+        <span>
+            Young & Grand
+        </span>
+
+    </div>
+
+
+    <nav id="navMenu">
+
+        <a href="#home" class="active">
+            Home
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+        
+        <a href="#services">
+            Services
+        </a>
+
+        <a href="#projects">
+            Projects
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <a href="#contact" class="hire-btn">
+
+        Hire Me
+
+        <span>
+            ↗
+        </span>
+
+    </a>
+
+
+    <button class="menu-btn" id="menuBtn">
+
+        ☰
+
+    </button>
+
+
+</header>
+
+
+
+<!-- ========================================
+     HERO
+======================================== -->
+
+<section class="hero" id="home">
+
+
+    <!-- LEFT CONTENT -->
+
+    <div class="hero-content">
+
+
+        <div class="small-title">
+
+            <span></span>
+
+            E-COMMERCE VIRTUAL ASSISTANT
+
+        </div>
+
+
+        <h1>
+
+            Hi, I'm
+
+            <span class="purple">
+                YURI ASHLEY
+            </span>
+
+            <br>
+
+            I help
+
+            <span class="purple">
+                online stores
+            </span>
+
+            grow.
+
+        </h1>
+
+
+        <p>
+
+            I'm an E-commerce VA specializing in Shopify | Helping Small Businesses Manage Their Online Stores, Increase Efficiency & Grow Sales
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+
+            <a
+                href="#projects"
+                class="primary-btn"
+            >
+
+                View My Work
+
+                <span>
+                    ↗
+                </span>
+
+            </a>
+
+
+            <a
+                href="resume.pdf"
+                class="outline-btn"
+                download
+            >
+
+                Download CV
+
+                <span>
+                    ↓
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+        <!-- TOOLS -->
+
+        <div class="tools">
+
+
+            <div class="tools-title">
+
+                TOOLS I USE
+
+            </div>
+
+
+            <div class="tools-list">
+
+
+                <div class="tool">
+                    Shopify
+                </div>
+
+
+                <div class="tool">
+                    Canva
+                </div>
+
+
+                <div class="tool">
+                    ChatGPT
+                </div>
+
+
+                <div class="tool">
+                    Google Workspace
+                </div>
+
+
+                <div class="tool">
+                    CapCut
+                </div>
+
+
+                <div class="tool">
+                    Notion
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- RIGHT VISUAL -->
+
+    <div class="hero-visual">
+
+
+        <!-- PURPLE BACKGROUND -->
+
+        <div class="purple-circle">
+        </div>
+
+
+        <!-- ORBITS -->
+
+        <div class="orbit orbit1">
+        </div>
+
+
+        <div class="orbit orbit2">
+        </div>
+
+
+
+        <!-- PROFILE PHOTO -->
+
+        <div class="profile-container">
+
+            <img
+                src="profile.jpg"
+                alt="Your Profile Photo"
+            >
+
+        </div>
+
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================================
+     ABOUT
+======================================== -->
+
+<section class="section" id="about">
+
+
+    <div class="section-header">
+
+
+        <span class="number">
+            01
+        </span>
+
+
+        <div>
+
+
+            <div class="small-title">
+                ABOUT ME
+            </div>
+
+
+            <h2>
+
+                Helping businesses
+
+                <span class="purple">
+                    work smarter.
+                </span>
+
+            </h2>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="about-grid">
+
+
+        <div class="about-text">
+
+
+            <p>
+
+                I'm an E-commerce Virtual Assistant specializing
+                in shopify store management and E-commerce support.
+                I help online businesses with product listing, 
+                product research, store organization, and daily 
+                tasks. I'm deatail-oriented, organized, and
+                comfortable using various E-commerce tools and 
+                productivity tools.
+                
+
+            </p>
+
+
+
+
+            <p>
+
+                My goal is simple: To save business owners time
+                while keeping their stores organized,
+                professional, and ready for growth.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="stats">
+
+
+            <div class="stat">
+
+                <h3>
+                    2+
+                </h3>
+
+                <p>
+                    Years Marketplace
+                    Experience
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    10+
+                </h3>
+
+                <p>
+                    E-commerce
+                    Skills
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    100%
+                </h3>
+
+                <p>
+                    Detail
+                    Focused
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+<!-- ========================================
+     SKILLS
+======================================== -->
+
+<section class="section" id="services">
+
+    <div class="section-header">
+
+        <span class="number">
+            02
+        </span>
+
+        <div>
+
+            <div class="small-title">
+                SKILLS
+            </div>
+
+            <h2>
+                What I can
+                <span class="purple">
+                    do.
+                </span>
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="skills-web">
+
+        <!-- SPIDER WEB -->
+        <div class="web-lines">
+
+            <svg viewBox="0 0 520 520">
+
+                <!-- Outer Web -->
+                <polygon points="
+                    260,55
+                    455,170
+                    425,390
+                    260,465
+                    95,390
+                    65,170
+                " />
+
+                <polygon points="
+                    260,110
+                    395,190
+                    375,350
+                    260,410
+                    145,350
+                    125,190
+                " />
+
+                <polygon points="
+                    260,165
+                    335,210
+                    325,310
+                    260,355
+                    195,310
+                    185,210
+                " />
+
+                <!-- Center Lines -->
+                <line x1="260" y1="260" x2="260" y2="55" />
+                <line x1="260" y1="260" x2="455" y2="170" />
+                <line x1="260" y1="260" x2="425" y2="390" />
+                <line x1="260" y1="260" x2="260" y2="465" />
+                <line x1="260" y1="260" x2="95" y2="390" />
+                <line x1="260" y1="260" x2="65" y2="170" />
+
+            </svg>
+
+        </div>
+
+
+        <!-- CENTER -->
+
+        <div class="skill-center">
+            E-COMMERCE<br>
+            VA
+        </div>
+
+
+        <!-- SKILLS -->
+
+        <div class="web-skill skill-1">
+            Shopify Store Management
+        </div>
+
+        <div class="web-skill skill-2">
+            Shopify Dropshipping
+        </div>
+
+        <div class="web-skill skill-3">
+            Product Listing & Optimization
+        </div>
+
+        <div class="web-skill skill-4">
+            Product Research
+        </div>
+
+        <div class="web-skill skill-5">
+            Order Processing
+        </div>
+
+        <div class="web-skill skill-6">
+            Email Management
+        </div>
+        
+
+    </div>
+
+</section>
+
+
+
+
+<!-- ========================================
+     PROJECTS
+======================================== -->
+
+<section class="section" id="projects">
+
+
+    <div class="section-header">
+
+
+        <span class="number">
+            03
+        </span>
+
+
+        <div>
+
+
+            <div class="small-title">
+                MY PROJECTS
+            </div>
+
+
+            <h2>
+
+                Selected
+
+                <span class="purple">
+                    work.
+                </span>
+
+            </h2>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="projects-grid">
+
+
+        <!-- PROJECT 1 -->
+
+        <div class="project-card">
+
+
+            <div class="project-image shopify-project">
+
+                LISTING
+
+            </div>
+
+
+            <div class="project-content">
+
+
+               
+
+                <h3>
+                    Shopify Product Listing
+                </h3>
+
+
+                <p>
+
+                    Complete product setup including
+                    descriptions, variants, images,
+                    tags, and product organization.
+
+                </p>
+
+
+                <a href="project-shopify-listing.html">
+                    View Project →
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+        <!-- PROJECT 3 -->
+
+        <div class="project-card">
+
+
+            <div class="project-image research-project">
+
+                RESEARCH
+
+            </div>
+
+
+            <div class="project-content">
+
+
+            
+
+
+                <h3>
+                    Product Research
+                </h3>
+
+
+                <p>
+
+                    Product, competitor, pricing,
+                    and market research organized
+                    into a professional report.
+
+                </p>
+
+
+                <a href="project-research.html">
+                    View Project →
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- PROJECT 4 -->
+
+        <div class="project-card">
+
+
+            <div class="project-image shopify-design-project">
+
+                SHOPIFY DESIGN
+
+            </div>
+
+
+            <div class="project-content">
+
+
+                <h3>
+                    Shopify Store Design
+                </h3>
+
+
+                <p>
+                    Designed a clean and professional Shopify storefront
+                    focused on product presentation and customer experience.
+                </p>
+
+
+                <a href="project-shopify-design.html">
+                    View Project →
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- ========================================
+     CONTACT
+======================================== -->
+
+<section class="contact-section section" id="contact">
+
+
+    <div>
+
+
+        <div class="small-title">
+
+            LET'S WORK TOGETHER
+
+        </div>
+
+
+        <h2>
+
+            Need help with your
+
+            <span class="purple">
+                online store?
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Let's discuss how I can help you manage
+            your e-commerce business.
+
+        </p>
+
+
+    </div>
+
+
+    <a
+        href="mailto:your@email.com"
+        class="primary-btn"
+    >
+
+        Contact Me
+
+        <span>
+            ↗
+        </span>
+
+    </a>
+
+
+</section>
+
+
+
+<!-- ========================================
+     FOOTER
+======================================== -->
+
+<footer>
+
+
+    <div>
+        © 2026 Your Name
+    </div>
+
+
+    <div>
+        E-commerce Virtual Assistant
+    </div>
+
+
+</footer>
+
+
+
+<!-- ========================================
+     JAVASCRIPT
+======================================== -->
+
+<script>
+
+
+    /* MOBILE MENU */
+
+    const menuBtn =
+        document.getElementById("menuBtn");
+
+    const navMenu =
+        document.getElementById("navMenu");
+
+
+    menuBtn.addEventListener("click", function () {
+
+        navMenu.classList.toggle("show");
+
+    });
+
+
+
+    /* CLOSE MENU */
+
+    const navLinks =
+        document.querySelectorAll("#navMenu a");
+
+
+    navLinks.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navMenu.classList.remove("show");
+
+        });
+
+    });
+
+
+
+    /* ACTIVE NAVIGATION */
+
+    const sections =
+        document.querySelectorAll("section[id]");
+
+
+    window.addEventListener("scroll", function () {
+
+        let currentSection = "home";
+
+
+        sections.forEach(function (section) {
+
+            const sectionTop =
+                section.offsetTop;
+
+
+            if (
+                window.scrollY >=
+                sectionTop - 200
+            ) {
+
+                currentSection =
+                    section.getAttribute("id");
+
+            }
+
+        });
+
+
+        navLinks.forEach(function (link) {
+
+            link.classList.remove("active");
+
+
+            if (
+                link.getAttribute("href") ===
+                "#" + currentSection
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
